@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public int Health { get { return health; } }
     private int ammo;
     public int Ammo { get { return ammo; } }
+    private bool killed;
+    public bool Killed { get { return killed; } }
     private bool isHurt;
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (ammo > 0)
+            if (ammo > 0 && Killed == false)
             {
                 ammo--;
                 GameObject bulletObject = ObjectPoolingManager.Instance.GetBullet(true);
@@ -49,6 +51,14 @@ public class Player : MonoBehaviour
             ammo += ammoCrate.ammo;
 
             Destroy(ammoCrate.gameObject);
+        } 
+        else if (otherCollider.GetComponent<HealthCrate>() != null)
+        {
+            // Collect health crates
+            HealthCrate healthCrate = otherCollider.GetComponent<HealthCrate>();
+            health += healthCrate.health;
+
+            Destroy(healthCrate.gameObject);
         }
         if (isHurt == false)
         {
@@ -58,8 +68,12 @@ public class Player : MonoBehaviour
             
                 // Touching enemies
                 Enemy enemy = otherCollider.GetComponent<Enemy>();
-                hazard = enemy.gameObject;
-                health -= enemy.damage;
+                if (enemy.Killed == false)
+                {
+                    hazard = enemy.gameObject;
+                    health -= enemy.damage;
+                }
+               
 
             }
             else if (otherCollider.GetComponent<Bullet>() != null)
@@ -81,6 +95,15 @@ public class Player : MonoBehaviour
                 GetComponent<ForceReceiver>().AddForce(knockbackDirection, knockbackForce);
                 StartCoroutine(HurtRoutine());
             }
+            if (health <= 0)
+            {
+                if (killed == false)
+                {
+                    killed = true;
+                    OnKill();
+                }
+            
+            }
         }
 
     }
@@ -90,5 +113,11 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(hurtDuration);
 
         isHurt = false;
+    }
+
+    private void OnKill()
+    {
+        GetComponent<CharacterController>().enabled = false;
+        GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
     }
 }

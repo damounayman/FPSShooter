@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class ShootingEnemy : Enemy
 {
+    public AudioSource deathSound;
     public float shootingInterval = 4f;
     public float shootingDistance = 3f;
     public float chasingInterval = 2f;
@@ -27,6 +28,12 @@ public class ShootingEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
+        if (player.Killed == true)
+        {
+            agent.enabled = false;
+            this.enabled = false;
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
         // shooting logic
         shootingTimer -= Time.deltaTime;
         if (shootingTimer <= 0 && Vector3.Distance(transform.position,player.transform.position)<= shootingDistance )
@@ -48,6 +55,7 @@ public class ShootingEnemy : Enemy
     }
     protected override void OnKill()
     {
+        deathSound.Play();
         base.OnKill();
         agent.enabled = false;
         this.enabled = false;

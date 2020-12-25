@@ -69,18 +69,12 @@
     <Compile Include="Assets\Project\Scripts\Game\Enemy.cs" />
     <Compile Include="Assets\Project\Scripts\Game\ForceReceiver.cs" />
     <Compile Include="Assets\Project\Scripts\Game\GameController.cs" />
+    <Compile Include="Assets\Project\Scripts\Game\HealthCrate.cs" />
     <Compile Include="Assets\Project\Scripts\Game\Player.cs" />
     <Compile Include="Assets\Project\Scripts\Game\ShootingEnemy.cs" />
+    <Compile Include="Assets\Project\Scripts\Menu\MenuController.cs" />
+    <Compile Include="Assets\Project\Scripts\Menu\NewBehaviourScript.cs" />
     <Compile Include="Assets\Project\Scripts\Utils\ObjectPoolingManager.cs" />
-    <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
-    <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
-    <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
-    <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
-    <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
-    <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
-    <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
-    <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
-    <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

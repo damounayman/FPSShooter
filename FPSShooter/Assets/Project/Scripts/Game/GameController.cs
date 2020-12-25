@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameController : MonoBehaviour
     public Text ammoText;
     public Text enemyText;
     public Text infoText;
+    private float resetTimer = 3f;
+    private bool gameOver = false;
+
 
 
     private int initialEnemyCount;
@@ -39,9 +43,24 @@ public class GameController : MonoBehaviour
 
         if((initialEnemyCount - killedEnemies) == 0)
         {
+            gameOver = true;
             infoText.gameObject.SetActive(true);
-            infoText.text = "You win! \n Good job!";
+            infoText.text = "You win! ~(^-^)~ \n Good job!";
 
+        }
+        if (player.Killed == true)
+        {
+            gameOver = true;
+            infoText.gameObject.SetActive(true);
+            infoText.text = "You lose ಥ_ಥ \n Try again!";
+        }
+        if(gameOver == true)
+        {
+            resetTimer -= Time.deltaTime;
+            if (resetTimer <= 0)
+            {
+                SceneManager.LoadScene("Menu");
+            }
         }
     }
 }
