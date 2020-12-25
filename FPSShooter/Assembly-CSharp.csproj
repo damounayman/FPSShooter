@@ -66,8 +66,11 @@
   <ItemGroup>
     <Compile Include="Assets\Project\Scripts\Game\AmmoCrate.cs" />
     <Compile Include="Assets\Project\Scripts\Game\Bullet.cs" />
+    <Compile Include="Assets\Project\Scripts\Game\Enemy.cs" />
+    <Compile Include="Assets\Project\Scripts\Game\ForceReceiver.cs" />
     <Compile Include="Assets\Project\Scripts\Game\GameController.cs" />
     <Compile Include="Assets\Project\Scripts\Game\Player.cs" />
+    <Compile Include="Assets\Project\Scripts\Game\ShootingEnemy.cs" />
     <Compile Include="Assets\Project\Scripts\Utils\ObjectPoolingManager.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
