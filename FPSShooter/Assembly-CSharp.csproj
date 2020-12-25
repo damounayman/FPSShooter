@@ -75,6 +75,7 @@
     <Compile Include="Assets\Project\Scripts\Menu\MenuController.cs" />
     <Compile Include="Assets\Project\Scripts\Menu\NewBehaviourScript.cs" />
     <Compile Include="Assets\Project\Scripts\Utils\ObjectPoolingManager.cs" />
+    <None Include="Assets\Low_Poly_Foliage_Pack_001\PLEASE READ!.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
